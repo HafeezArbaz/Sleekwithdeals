@@ -1,2 +1,9 @@
-fastapi[standard]==0.113.0
-pydantic==2.8.0
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+python-multipart
+python-dotenv
+pydantic
+jinja2
+email-validator
