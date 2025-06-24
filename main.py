@@ -32,12 +32,20 @@ async def create_product(
     name: str = Form(...),
     price: float = Form(...),
     description: str = Form(...),
+    category: str = Form(...),             # ✅ New field
+    sub_category: str = Form(None),        # ✅ New optional field
     images: List[UploadFile] = File(...)
 ):
     db = SessionLocal()
     try:
         # Create and save product
-        product = Store(Name=name, Price=price, Description=description)
+        product = Store(
+            Name=name,
+            Price=price,
+            Description=description,
+            Category=category,             # ✅ Save category
+            SubCategory=sub_category       # ✅ Save sub-category
+        )
         db.add(product)
         db.commit()
         db.refresh(product)
@@ -66,6 +74,7 @@ async def create_product(
 
     finally:
         db.close()
+
 
 @app.get("/products")
 def get_all_products():

@@ -12,6 +12,9 @@ class Store(Base):
     Price = Column(Float)
     Description = Column(String)
 
+    Category = Column(String, nullable=False)     # ✅ newly added
+    SubCategory = Column(String, nullable=True)   # ✅ newly added
+
     images = relationship("ProductImage", back_populates="product", cascade="all, delete-orphan")
 
 

@@ -2,11 +2,11 @@ from typing import List
 from pydantic import BaseModel
 
 class StoreCreate(BaseModel):
-    ID: str
     Name: str
-    Price: int
-    Image: str
+    Price: float
     Description: str
+    Category: str
+    SubCategory: Optional[str] = None
 
 class StoreResponse(BaseModel):
     id: int
