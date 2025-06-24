@@ -11,8 +11,8 @@ venv/
 # VS Code settings
 .vscode/
 
-# Environment variables
-.env
+# # Environment variables
+# .env
 
 # OS junk
 .DS_Store
